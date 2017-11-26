@@ -24,10 +24,10 @@
         <!-- Otherwise if there is no user, direct to signup and login  -->
         <% if is_logged_in? %>
 
-        <%= @current_user.username %>
+        <%= @current_user.user.username %>
 
         <!-- If current user is admin, display admin dashboard at the navbar -->
-        <% if @current_user.is.admin? %>
+        <% if @current_user.is_admin? %>
           <%= link_do 'Admin', admin_root_path %>
         <% end %>
 
