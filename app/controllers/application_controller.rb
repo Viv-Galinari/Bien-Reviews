@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   # add in the method to use in the views (share my code within views and controllers)
   helper_method :is_logged_in?
 
-  # this finds the current user if logged in
+  # this finds if current user is logged in
   def find_current_user
     if is_logged_in?
       @current_user = User.find(session[:user_id])
@@ -20,11 +20,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Function that check login state and redirect users to login page, if they are not logged in
-  # This will protect us from hacking the url in the browser and write review without logged in
+  # Function that check login state and redirect users to login page
+  # This will protect us from  users hacking the url in the browser and write review without logged in
   # because we have this in our applications controller I can use all accross my site
-  # Check_login on reviews controller
-  # unless is the opposite of 'if' and doesnt need 'else'
   def check_login
     unless is_logged_in?
       redirect_to new_session_path

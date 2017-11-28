@@ -15,6 +15,8 @@ resources :users
 # add resources for sessions
 resource :session
 
+resource :account
+
 # custom urls for about page and T&C. 'Get' means pull and view page
 get "about", to: "pages#about"
 get "terms", to: "pages#terms"
